@@ -1,37 +1,20 @@
 <template>
-  <div>
-    <h2>{{ title }}</h2>
-    <p>{{ content }}</p>
-    <button @click="handleClick">Kirim Event ke Parent</button>
+  <div class="hello">
+    <h2>Ini dari HelloWorld.vue</h2>
+    <slot></slot> <!-- Slot default -->
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  title: String,
-  content: String
-})
-
-const emit = defineEmits(['notify'])
-
-function handleClick() {
-  emit('notify', 'Halo dari komponen anak!')
-}
+<script>
+export default {
+  name: "HelloWorld"
+};
 </script>
 
 <style scoped>
-h2 {
-  color: #2c3e50;
-}
-p {
-  font-size: 16px;
-}
-button {
-  margin-top: 10px;
-  padding: 6px 12px;
-  background-color: #42b983;
-  border: none;
-  color: white;
-  cursor: pointer;
+.hello {
+  border: 2px solid #42b983;
+  padding: 16px;
+  margin: 16px;
 }
 </style>
