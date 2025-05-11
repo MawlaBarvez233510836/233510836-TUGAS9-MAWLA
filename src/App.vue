@@ -1,15 +1,26 @@
 <script setup>
+import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
+
+const pesan = ref('')
+function tanganiNotifikasi(msg) {
+  pesan.value = msg
+}
 </script>
 
 <template>
   <div>
-    <h1>Aplikasi Vue Props</h1>
+    <h1>Aplikasi Vue Emits</h1>
 
     <HelloWorld 
-      title="Judul dari Parent" 
-      content="Ini adalah konten yang dikirim dari parent ke komponen anak." 
+      title="Belajar Emits" 
+      content="Klik tombol di bawah untuk kirim event." 
+      @notify="tanganiNotifikasi"
     />
+
+    <p v-if="pesan" style="margin-top: 20px; color: red;">
+      Pesan dari anak: {{ pesan }}
+    </p>
   </div>
 </template>
 
