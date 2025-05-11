@@ -1,15 +1,22 @@
 <template>
   <div>
-    <h2>Halo dari Komponen!</h2>
-    <p>Ini adalah komponen Vue sederhana.</p>
+    <h2>{{ title }}</h2>
+    <p>{{ content }}</p>
   </div>
 </template>
 
 <script setup>
+const props = defineProps({
+  title: String,
+  content: String
+})
 </script>
 
 <style scoped>
 h2 {
-  color: teal;
+  color: #2c3e50;
+}
+p {
+  font-size: 16px;
 }
 </style>
